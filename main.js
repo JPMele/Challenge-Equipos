@@ -19,6 +19,8 @@ client.connect(err => {
 
 const Equipo = require("./Equipo");
 
+//jjrvr
+
 mongoose.connect(uri);
 
 run()
