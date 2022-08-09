@@ -16,7 +16,7 @@ client.connect(err => {
   console.log(err);
   client.close();
 });
-//fef
+
 const Equipo = require("./Equipo");
 
 mongoose.connect(uri);
@@ -61,13 +61,23 @@ async function run() {
                 }
 
                 if(!match){
+                    try {
                     var equipo = new Equipo(equiposData)
 
                     await equipo.save();
+                    }
+                    catch(error){
+                        console.error(error);
+                    }
                 }
 
                 else {
+                    try{
                     await Equipo.updateOne(equiposData);
+                    }
+                    catch(error){
+                        console.error(error);
+                    }
                 }
 
             })
@@ -78,6 +88,10 @@ async function run() {
     }
     
 }
+
+setInterval(() => {
+    run()
+}, process.env.WAIT_TIME || 8000)
 
 const app = express();
 
