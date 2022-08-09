@@ -73,7 +73,7 @@ async function run() {
 
                 else {
                     try{
-                    await Equipo.updateOne(equiposData);
+                    await Equipo.findOneAndUpdate({nombre: nombreE},equiposData);
                     }
                     catch(error){
                         console.error(error);
