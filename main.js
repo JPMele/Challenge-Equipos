@@ -16,7 +16,7 @@ client.connect(err => {
   console.log(err);
   client.close();
 });
-
+//fef
 const Equipo = require("./Equipo");
 
 mongoose.connect(uri);
