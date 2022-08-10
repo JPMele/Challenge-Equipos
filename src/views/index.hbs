@@ -2,6 +2,7 @@
     <table class="default">
         <body>
             <tr>
+                <h1>
                 <td>Pos</td>
                 <td>Equipo</td>
                 <td>PJ</td>
@@ -12,9 +13,11 @@
                 <td class="fade">GC</td>
                 <td class="fade">DF</td>
                 <td>Puntos</td>
+                </h1>
             </tr>
         {{#each listaEquipos}}
             <tr>
+                <h2>
                 <td class="shade">{{this.posicion}}</td>
                 <td><img src= "{{this.escudo}}">&ensp;{{this.nombre}}</td>
                 <td class="shade">{{this.partidosJugados}}</td>
@@ -25,6 +28,7 @@
                 <td class="fade">{{this.golesContra}}</td>
                 <td class="fade">{{this.diferenciaPuntos}}</td>
                 <td class="shade">{{this.puntos}}</td>
+                </h2>
             </tr>
         {{/each}}
         </body>
