@@ -1,16 +1,32 @@
-<table>
-    {{#each listaEquipos}}
-        <tr>
-            <td>{{this.posicion}}</td>
-            <td><img src= "{{this.escudo}}">{{this.nombre}}</td>
-            <td>{{this.partidosJugados}}</td>
-            <td>{{this.partidosGanados}}</td>
-            <td>{{this.partidosPerdidos}}</td>
-            <td>{{this.partidosPerdidos}}</td>
-            <td>{{this.goles}}</td>
-            <td>{{this.golesContra}}</td>
-            <td>{{this.diferenciaPuntos}}</td>
-            <td>{{this.puntos}}</td>
-        </tr>
-    {{/each}}
-</table>
+<div class="main">
+    <table class="default">
+        <body>
+            <tr>
+                <td>Pos</td>
+                <td>Equipo</td>
+                <td>PJ</td>
+                <td>G</td>
+                <td>P</td>
+                <td>E</td>
+                <td class="fade">GF</td>
+                <td class="fade">GC</td>
+                <td class="fade">DF</td>
+                <td>Puntos</td>
+            </tr>
+        {{#each listaEquipos}}
+            <tr>
+                <td class="shade">{{this.posicion}}</td>
+                <td><img src= "{{this.escudo}}">&ensp;{{this.nombre}}</td>
+                <td class="shade">{{this.partidosJugados}}</td>
+                <td>{{this.partidosGanados}}</td>
+                <td>{{this.partidosPerdidos}}</td>
+                <td>{{this.partidosPerdidos}}</td>
+                <td class="fade">{{this.goles}}</td>
+                <td class="fade">{{this.golesContra}}</td>
+                <td class="fade">{{this.diferenciaPuntos}}</td>
+                <td class="shade">{{this.puntos}}</td>
+            </tr>
+        {{/each}}
+        </body>
+    </table>
+</div>

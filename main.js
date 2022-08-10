@@ -100,7 +100,7 @@ app.engine('hbs', exphbs.engine({
     extname: '.hbs'
 }));
 
-app.use(express.static(__dirname + '../src'));
+app.use(express.static('public'))
 app.set('views', __dirname + '/src/views')
 app.set('view engine', 'hbs')
 
