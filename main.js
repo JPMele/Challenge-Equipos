@@ -9,8 +9,7 @@ require('dotenv').config({path:'./.env'});
 const port = process.env.PORT;
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://Leizorjs:Juan99mele@cluster0.ahk9ims.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
   const collection = client.db("EquiposDB").collection("devices");
   console.log(err);
@@ -19,7 +18,7 @@ client.connect(err => {
 
 const Equipo = require("./Equipo");
 
-mongoose.connect(uri);
+mongoose.connect(process.env.URI);
 
 run()
 async function run() {
