@@ -1,6 +1,6 @@
 body {
   background-color:#2a2f3b;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+  font-family: Tahoma, sans-serif;
   font-size: 1.2em;
 }
 
@@ -21,7 +21,7 @@ body {
 
 @media screen and (min-width:1200px) {
   body{
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 }
 
@@ -41,30 +41,19 @@ table {
   margin: auto;
 }
 
-table.default th {
+table.default td {
   padding: 0.2em 0.8em;
-  border: 1px solid rgba(20,50,90,.25);
-  background: rgba(0,102,255,.25);
+  border: 1px solid rgba(35, 41, 49, 0.25);
+  background: rgba(231, 234, 238, 0.25);
   text-align: center;
 }
 
-table.default td {
-  padding: 0.2em 0.8em;
-  border: 1px solid rgba(16,76,167,.25);
-  background: rgba(231, 234, 238, 0.25);
-  text-align: left;
+.primeros4{
+  background-color: green;
 }
 
-tr:nth-child(-n+1) {
-  background-color: rgba(119, 126, 129, 0.25) !important;
-}
-
-tr:nth-child(-n+5) {
-  background-color: rgba(16, 104, 27, 0.735);
-}
-
-tr:nth-last-child(-n+4){
-  background-color: rgba(90, 13, 13, 0.756);
+.ultimos4{
+  background-color: red;
 }
 
 tr {
@@ -87,3 +76,4 @@ td {
 .shade{
   filter: brightness(65%);
 }
+

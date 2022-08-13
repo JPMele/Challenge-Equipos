@@ -17,6 +17,7 @@ client.connect(err => {
 });
 
 const Equipo = require("./Equipo");
+const { helpers } = require("handlebars");
 
 mongoose.connect(process.env.URI);
 
@@ -96,7 +97,8 @@ const app = express();
 
 app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
-    extname: '.hbs'
+    extname: '.hbs',
+    helpers: require('./helpers/handlebars-helpers')
 }));
 
 app.use(express.static('public'))
@@ -105,7 +107,12 @@ app.set('view engine', 'hbs')
 
 app.get("/", async (req, res) => {
     var listaEquipos = await Equipo.find({}).sort({posicion: 1}).lean()
-    res.render('index', {listaEquipos})
+    var listaLong = listaEquipos.length
+    console.log(listaLong);
+    res.render(
+        'index', 
+    {listaEquipos, listaLong}
+    )
 })
 
 app.listen(port, () => console.log('Server running on port ' + port));
