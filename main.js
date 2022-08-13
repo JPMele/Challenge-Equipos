@@ -60,26 +60,12 @@ async function run() {
                         escudo: escudoE
                 }
 
-                if(!match){
-                    try {
-                    var equipo = new Equipo(equiposData)
-
-                    await equipo.save();
-                    }
-                    catch(error){
-                        console.error(error);
-                    }
+                try{
+                await Equipo.findOneAndUpdate({nombre: nombreE}, equiposData, {upsert: true});
                 }
-
-                else {
-                    try{
-                    await Equipo.findOneAndUpdate({nombre: nombreE},equiposData);
-                    }
-                    catch(error){
-                        console.error(error);
-                    }
+                catch(error){
+                    console.error(error);
                 }
-
             })
 
         }).catch(err => console.log(err))
