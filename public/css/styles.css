@@ -77,3 +77,8 @@ td {
   filter: brightness(55%);
 }
 
+h1{
+  text-align: center;
+  color: darkcyan;
+}
+
