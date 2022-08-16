@@ -16,7 +16,9 @@ mongoose.connect(process.env.URI, function(error) {
         return;
     }
     console.log("Conectado a la base de datos");
-    run();
+    setInterval(() => {
+        run()
+    }, process.env.WAIT_TIME || 8000)
 });
 
 async function run() {
@@ -71,10 +73,6 @@ async function run() {
     
 }
 
-setInterval(() => {
-    run()
-}, process.env.WAIT_TIME || 8000)
-
 const app = express();
 
 app.engine('hbs', exphbs.engine({
@@ -90,7 +88,6 @@ app.set('view engine', 'hbs')
 app.get("/", async (req, res) => {
     var listaEquipos = await Equipo.find({}).sort({posicion: 1}).lean()
     var listaLong = listaEquipos.length
-    console.log(listaLong);
     res.render(
         'index', 
     {listaEquipos, listaLong}
