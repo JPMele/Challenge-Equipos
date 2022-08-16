@@ -15,10 +15,10 @@ mongoose.connect(process.env.URI, function(error) {
         console.log(error);
         return;
     }
-    console.log("Conectado a la base de datos")
+    console.log("Conectado a la base de datos");
+    run();
 });
 
-run()
 async function run() {
     try {
         var url = 'https://www.futbolargentino.com/primera-division/tabla-de-posiciones';
