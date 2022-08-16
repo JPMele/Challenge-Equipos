@@ -14,7 +14,7 @@
                 <td>Puntos</td>
             </tr>
         {{#each listaEquipos}}
-            <tr>
+            <tr class="{{obtenerColorFondo @index ../listaLong}}">
                 <td class="shade">{{this.posicion}}</td>
                 <td style="text-align: left;"><img src= "{{this.escudo}}">&ensp;{{this.nombre}}</td>
                 <td class="shade">{{this.partidosJugados}}</td>
