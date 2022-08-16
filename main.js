@@ -7,19 +7,16 @@ const exphbs = require('express-handlebars');
 require('dotenv').config({path:'./.env'});
 
 const port = process.env.PORT;
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const client = new MongoClient(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("EquiposDB").collection("devices");
-  console.log(err);
-  client.close();
-});
-
 const Equipo = require("./Equipo");
 const { helpers } = require("handlebars");
 
-mongoose.connect(process.env.URI);
+mongoose.connect(process.env.URI, function(error) {
+    if(error){
+        console.log(error);
+        return;
+    }
+    console.log("Conectado a la base de datos")
+});
 
 run()
 async function run() {
@@ -45,7 +42,6 @@ async function run() {
                 var ptsE = $(this).find('td:nth-child(10)').text()
                 var escudoE = $(this).find('a > img').attr('data-src')
                 
-                var match = await Equipo.exists({nombre: nombreE})
                 var equiposData = {
                          nombre: nombreE,
                         posicion: posicionE,
